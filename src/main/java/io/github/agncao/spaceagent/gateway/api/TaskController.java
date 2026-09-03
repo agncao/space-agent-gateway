@@ -1,12 +1,12 @@
 package io.github.agncao.spaceagent.gateway.api;
 
 import io.github.agncao.spaceagent.gateway.application.PersistentGatewayService;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskAccepted;
-import io.github.agncao.spaceagent.gateway.domain.task.ActionRequest;
-import io.github.agncao.spaceagent.gateway.domain.task.ActionResult;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskCommand;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskEvent;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskSubmission;
+import io.github.agncao.spaceagent.contracts.v1.ActionRequest;
+import io.github.agncao.spaceagent.contracts.v1.ActionResult;
+import io.github.agncao.spaceagent.contracts.v1.TaskAccepted;
+import io.github.agncao.spaceagent.contracts.v1.TaskCommand;
+import io.github.agncao.spaceagent.contracts.v1.TaskEvent;
+import io.github.agncao.spaceagent.contracts.v1.TaskSubmission;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

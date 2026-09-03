@@ -15,4 +15,5 @@ jobs:
           distribution: temurin
           java-version: "21"
           cache: maven
+      - run: cd vendor && sha256sum -c SHA256SUMS
       - run: mvn -B verify

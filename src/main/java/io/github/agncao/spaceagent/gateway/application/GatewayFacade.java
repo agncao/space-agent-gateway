@@ -1,10 +1,10 @@
 package io.github.agncao.spaceagent.gateway.application;
 
-import io.github.agncao.spaceagent.gateway.domain.agent.AgentManifest;
+import io.github.agncao.spaceagent.contracts.v1.AgentManifest;
+import io.github.agncao.spaceagent.contracts.v1.TaskAccepted;
+import io.github.agncao.spaceagent.contracts.v1.TaskSubmission;
 import io.github.agncao.spaceagent.gateway.domain.policy.GatewayPolicyException;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskAccepted;
 import io.github.agncao.spaceagent.gateway.domain.task.TaskLedger;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskSubmission;
 
 import java.util.LinkedHashMap;
 import java.util.List;

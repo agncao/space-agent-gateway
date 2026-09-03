@@ -1,6 +1,6 @@
 package io.github.agncao.spaceagent.gateway.domain.policy;
 
-import io.github.agncao.spaceagent.gateway.domain.task.TaskEvent;
+import io.github.agncao.spaceagent.contracts.v1.TaskEvent;
 
 import java.util.List;
 
@@ -14,7 +14,9 @@ public final class TaskEventPolicy {
     }
 
     public void validateEffects(TaskEvent event, List<String> allowedEffects) {
-        for (String effect : event.effects()) {
+        List<String> effects = event.result() == null || event.result().effects() == null
+                ? List.of() : event.result().effects();
+        for (String effect : effects) {
             if (!allowedEffects.contains(effect)) {
                 throw new GatewayPolicyException("UNAUTHORIZED_EFFECT: " + effect);
             }
@@ -22,7 +24,9 @@ public final class TaskEventPolicy {
     }
 
     public void validateInvalidates(TaskEvent event, List<String> allowedInvalidates) {
-        for (String invalidated : event.invalidates()) {
+        List<String> invalidates = event.result() == null || event.result().invalidates() == null
+                ? List.of() : event.result().invalidates();
+        for (String invalidated : invalidates) {
             if (!allowedInvalidates.contains(invalidated)) {
                 throw new GatewayPolicyException("UNAUTHORIZED_EFFECT: invalidates " + invalidated);
             }

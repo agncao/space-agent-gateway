@@ -23,3 +23,9 @@ SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run
 等环境变量注入。数据库由 Flyway 自动迁移到独立 `space_agent_gateway` schema。
 
 核心 API：`/api/v1/agents/*`、`/api/v1/tasks*`、`/api/v1/task-events`、`/api/v1/action-requests`。
+
+## 契约依赖
+
+Gateway 不定义自己的 wire DTO，直接编译和运行 `contracts-v0.1.0` 发布的 Java JAR。
+在公司 Maven 制品库建立前，JAR 固定在 `vendor/`，`vendor/SHA256SUMS` 和 CI 防止静默替换；
+上线内部制品库后只需将 Maven `systemPath` 换为普通版本依赖。

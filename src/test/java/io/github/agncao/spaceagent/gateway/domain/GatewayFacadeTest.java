@@ -1,11 +1,11 @@
 package io.github.agncao.spaceagent.gateway.domain;
 
 import io.github.agncao.spaceagent.gateway.application.GatewayFacade;
-import io.github.agncao.spaceagent.gateway.domain.agent.AgentManifest;
+import io.github.agncao.spaceagent.contracts.v1.AgentManifest;
+import io.github.agncao.spaceagent.contracts.v1.TaskAccepted;
+import io.github.agncao.spaceagent.contracts.v1.TaskSubmission;
 import io.github.agncao.spaceagent.gateway.domain.policy.GatewayPolicyException;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskAccepted;
 import io.github.agncao.spaceagent.gateway.domain.task.TaskLedger;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskSubmission;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -29,7 +29,7 @@ class GatewayFacadeTest {
         GatewayFacade facade = new GatewayFacade(new TaskLedger(() -> "exec-1"));
         facade.register(new AgentManifest(
                 "analysis-agent", "space-agent-analysis", "0.1.0", "v1",
-                "分析", List.of("scene.opened"), List.of("analysis.illumination.completed"),
+                "分析", null, List.of("scene.opened"), List.of("analysis.illumination.completed"),
                 List.of(), List.of("analysis.present_result")));
 
         TaskAccepted first = facade.submit(submission());
@@ -43,6 +43,7 @@ class GatewayFacadeTest {
     private static TaskSubmission submission() {
         return new TaskSubmission(
                 "v1", "orchestrator-a", "run-1", "step-1", "analysis-agent",
-                "分析光照数据", "分析它的光照数据", "run-1:step-1:1", Map.of());
+                "分析光照数据", "分析它的光照数据", "user", Map.of(), List.of(), null,
+                "run-1:step-1:1");
     }
 }

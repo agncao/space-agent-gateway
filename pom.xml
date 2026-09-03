@@ -20,6 +20,13 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>io.github.agncao</groupId>
+            <artifactId>space-agent-contracts</artifactId>
+            <version>0.1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/vendor/space-agent-contracts-0.1.0.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -97,6 +104,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

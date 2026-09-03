@@ -1,7 +1,7 @@
 package io.github.agncao.spaceagent.gateway.api;
 
 import io.github.agncao.spaceagent.gateway.application.PersistentGatewayService;
-import io.github.agncao.spaceagent.gateway.domain.agent.AgentManifest;
+import io.github.agncao.spaceagent.contracts.v1.AgentManifest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

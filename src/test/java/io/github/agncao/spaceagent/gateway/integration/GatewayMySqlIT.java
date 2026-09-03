@@ -4,11 +4,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.json.JsonMapper;
 import io.github.agncao.spaceagent.gateway.application.PersistentGatewayService;
-import io.github.agncao.spaceagent.gateway.domain.agent.AgentManifest;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskAccepted;
-import io.github.agncao.spaceagent.gateway.domain.task.ActionRequest;
-import io.github.agncao.spaceagent.gateway.domain.task.ActionResult;
-import io.github.agncao.spaceagent.gateway.domain.task.TaskSubmission;
+import io.github.agncao.spaceagent.contracts.v1.ActionRequest;
+import io.github.agncao.spaceagent.contracts.v1.ActionResult;
+import io.github.agncao.spaceagent.contracts.v1.AgentManifest;
+import io.github.agncao.spaceagent.contracts.v1.TaskAccepted;
+import io.github.agncao.spaceagent.contracts.v1.TaskSubmission;
 import io.github.agncao.spaceagent.gateway.infrastructure.rocketmq.OutboxRelay;
 import org.flywaydb.core.Flyway;
 import org.junit.jupiter.api.BeforeAll;
@@ -51,6 +51,7 @@ class GatewayMySqlIT {
         service = new PersistentGatewayService(jdbc, mapper);
         service.register(new AgentManifest(
                 "analysis-agent", "space-agent-analysis", "0.1.0", "v1", "分析",
+                null,
                 List.of("scene.opened", "entity.resolved"),
                 List.of("analysis.illumination.completed"), List.of(),
                 List.of("analysis.analyze_entity_data")));
@@ -120,7 +121,7 @@ class GatewayMySqlIT {
     private static TaskSubmission submission(String requester, String runId, String idempotencyKey) {
         return new TaskSubmission(
                 "v1", requester, runId, "step-1", "analysis-agent", "分析当前实体的光照数据",
-                "分析它的光照数据", idempotencyKey,
-                Map.of("facts", List.of("scene.opened", "entity.resolved")));
+                "分析它的光照数据", "user",
+                Map.of("facts", List.of("scene.opened", "entity.resolved")), List.of(), null, idempotencyKey);
     }
 }
