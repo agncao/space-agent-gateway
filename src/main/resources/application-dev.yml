@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: ${MYSQL_URL:jdbc:mysql://127.0.0.1:3306/space_agent_gateway?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR:127.0.0.1:8848}
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${ROCKETMQ_NAME_SERVER:127.0.0.1:9876}

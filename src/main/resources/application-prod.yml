@@ -1,0 +1,17 @@
+spring:
+  config:
+    import: optional:nacos:space-agent-gateway-prod.yaml
+  datasource:
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${NACOS_SERVER_ADDR}
+        namespace: ${NACOS_NAMESPACE}
+        group: ${NACOS_GROUP:SPACE_AGENT}
+    stream:
+      rocketmq:
+        binder:
+          name-server: ${ROCKETMQ_NAME_SERVER}

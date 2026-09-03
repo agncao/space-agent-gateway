@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: space-agent-gateway
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  profiles:
+    default: dev
+  cloud:
+    function:
+      definition: deliveryConsumer;callbackConsumer
+    stream:
+      bindings:
+        deliveryConsumer-in-0:
+          destination: space-agent-delivery-v1
+          group: space-agent-gateway-delivery
+        callbackConsumer-in-0:
+          destination: space-agent-callback-v1
+          group: space-agent-gateway-callback
+server:
+  port: ${SERVER_PORT:8088}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+space:
+  gateway:
+    outbox-delay-ms: 500
+    outbox-max-attempts: 20
