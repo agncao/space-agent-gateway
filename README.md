@@ -29,3 +29,9 @@ SPRING_PROFILES_ACTIVE=dev mvn spring-boot:run
 Gateway 不定义自己的 wire DTO，直接编译和运行 `contracts-v0.1.0` 发布的 Java JAR。
 在公司 Maven 制品库建立前，JAR 固定在 `vendor/`，`vendor/SHA256SUMS` 和 CI 防止静默替换；
 上线内部制品库后只需将 Maven `systemPath` 换为普通版本依赖。
+
+## 文档
+
+- [三仓整体架构方案](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/跨部门多智能体架构实施说明.md)：本仓在多智能体系统中的边界、数据流和事实治理。
+- [AGENTS.md](AGENTS.md)：今后在本仓进行 Codex/vibe coding 时必须遵守的工程约束。
+- [MIGRATION.md](MIGRATION.md)：来源提交和迁移说明。
