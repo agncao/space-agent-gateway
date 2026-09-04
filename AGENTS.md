@@ -7,10 +7,10 @@
 先阅读：
 
 - [README：职责、技术基线和运行方式](README.md)
-- [整体架构：边界与部署拓扑](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/跨部门多智能体架构实施说明.md#1-边界与部署拓扑)
-- [整体架构：控制权归属](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/跨部门多智能体架构实施说明.md#2-控制权归属)
-- [整体架构：真实数据流](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/跨部门多智能体架构实施说明.md#3-分析它的光照数据真实数据流)
-- [整体架构：恢复和幂等](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/跨部门多智能体架构实施说明.md#4-恢复和幂等)
+- [整体架构：边界与部署拓扑](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/architecture/跨部门多智能体架构实施说明.md#1-边界与部署拓扑)
+- [整体架构：控制权归属](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/architecture/跨部门多智能体架构实施说明.md#2-控制权归属)
+- [整体架构：真实数据流](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/architecture/跨部门多智能体架构实施说明.md#3-分析它的光照数据真实数据流)
+- [整体架构：恢复和幂等](https://github.com/agncao/space-aiagent-platform/blob/codex/cross-department-agent-v1/docs/architecture/跨部门多智能体架构实施说明.md#4-恢复和幂等)
 
 整体架构文档由 `space-aiagent-platform` 维护，是跨仓边界的唯一事实源；本仓不复制另一份方案。
 
